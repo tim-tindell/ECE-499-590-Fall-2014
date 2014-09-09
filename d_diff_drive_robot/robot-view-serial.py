@@ -73,25 +73,14 @@ while True:
 #--------[ Do not edit above ]------------------------
 #-----------------------------------------------------
     # Def:
-    # ref.ref[0] = Right Wheel Velos
-    # ref.ref[1] = Left Wheel Velos
     # tim.sim[0] = Sim Time
-    # img        = cv image in BGR format
 
 
     print 'Sim Time = ', tim.sim[0]
-    
-    # Sets reference to robot
-#    r.put(ref);
 
     # Sleeps
     time.sleep(0.1)   
-    buff = [255,255,0,0x20,5,255,5,0]
-    n = len(buff)
-    checkSum = 0
-    for i in range(2,(n-1)):
-        checkSum = (buff[i] & 0xff) + checkSum
-    buff[n-1] = ~checkSum
+    buff = [0,0,0,0,0,0,0,0]
     ref = ser.serial_sim(r,ref,buff)
 
 

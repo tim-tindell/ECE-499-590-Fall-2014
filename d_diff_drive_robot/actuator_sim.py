@@ -17,23 +17,14 @@ def serial_sim(r,ref,buff):
           a_dir = 1
           if (s_dir == 0):
             a_dir = -1
-
-          print val
           if (s_id < 2):
             ref.ref[s_id] = a_dir * val/1023.0
             r.put(ref)
-            print ref.ref[s_id]
-            print 'put ref'
-          print val
           return ref
       else:
-        print 'e3'
-        print (buff[n-1] & 0xff)
-        print (~checkSum & 0xff)
-        return None
+        return ref
     else:
-      print 'e2'
-      return None
+      return ref
   else:
-    print 'e1'
-    return None
+    return ref
+  return ref
