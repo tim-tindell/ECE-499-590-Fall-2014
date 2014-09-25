@@ -46,7 +46,6 @@ print '======================================'
 
 periodTime=0.0
 timetochange=0.0
-#State0 is rotate clockwise, State1 is rotate counterclockwise, State2 is move in square
 controller = ci.CONTROLLER_REF()
 while True:
     [status, framesize] = t.get(tim, wait=False, last=True)
