@@ -60,6 +60,11 @@ MakeAch()
 	ach -1 -C $ROBOT_VIEW_VID_CHAN -m 30 -n 3000000
 	ach -1 -C $ROBOT_DIFF_DRIVE_CHAN -m 30 -n 30000
 	ach -1 -C $ROBOT_TIME_CHAN -m 30 -n 30000
+	ach -1 -C ANG_VELOC_CHAN -m 30 -n 30000
+	ach -1 -C LR_VAL_CHAN -m 30 -n 30000
+	ach -1 -C controller-ref-chan -m 30 -n 30000
+
+
         sudo chmod 777 /dev/shm/achshm-*
 }
 

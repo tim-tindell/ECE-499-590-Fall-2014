@@ -9,12 +9,12 @@
     <static>false</static>
 <!-- Box/Chasis -->
      <link name='chassis'>
-        <pose>0 0 .1 0 0 0</pose>
+        <pose>-.15 0 .1 0 0 0</pose>
 
         <collision name='collision'>
           <geometry>
             <box>
-              <size>.4 .2 .1</size>
+              <size>.6 .2 .1</size>
             </box>
           </geometry>
         </collision>
@@ -22,14 +22,15 @@
         <visual name='visual'>
           <geometry>
             <box>
-              <size>.4 .2 .1</size>
+              <size>.6 .2 .1</size>
             </box>
           </geometry>
         </visual>
-
+        
+       
 <!-- Caster -->
       <collision name='caster_collision'>
-        <pose>-0.15 0 -0.05 0 0 0</pose>
+        <pose>-0.2 0 -0.05 0 0 0</pose>
         <geometry>
           <sphere>
           <radius>.05</radius>
@@ -49,7 +50,7 @@
     </collision>
 
     <visual name='caster_visual'>
-      <pose>-0.15 0 -0.05 0 0 0</pose>
+      <pose>-0.2 0 -0.05 0 0 0</pose>
       <geometry>
         <sphere>
           <radius>.05</radius>
@@ -64,7 +65,7 @@
 <!-- Left Wheel -->
 
   <link name="left_wheel">
-    <pose>0.1 0.13 0.1 0 1.5707 1.5707</pose>
+    <pose>0.0 0.13 0.1 0 1.5707 1.5707</pose>
     <collision name="collision">
       <geometry>
         <cylinder>
@@ -86,7 +87,7 @@
 
 <!-- Right Wheel -->
   <link name="right_wheel">
-    <pose>0.1 -0.13 0.1 0 1.5707 1.5707</pose>
+    <pose>0.0 -0.13 0.1 0 1.5707 1.5707</pose>
     <collision name="collision">
       <geometry>
         <cylinder>
@@ -166,7 +167,7 @@
 
    <include>
       <uri>model://camera</uri>
-      <pose>0.0 -0.05 0.2 0 0 0</pose>
+      <pose>-0.05 -0.05 0.175 0 0 0</pose>
       <name>camera</name>
 <!--      <plugin name='camera_dump' filename='libcamera_dump.so'/> -->
     </include>

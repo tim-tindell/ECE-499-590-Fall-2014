@@ -35,6 +35,7 @@ import socket
 import cv2.cv as cv
 import cv2
 import numpy as np
+import controller_def as ctrl
 
 dd = diff_drive
 ref = dd.H_REF()
@@ -65,12 +66,6 @@ t.flush()
 
 i=0
 
-
-print '======================================'
-print '============= Robot-View ============='
-print '========== Daniel M. Lofaro =========='
-print '========= dan@danLofaro.com =========='
-print '======================================'
 while True:
     # Get Frame
     img = np.zeros((newx,newy,3), np.uint8)
@@ -102,13 +97,15 @@ while True:
     # tim.sim[0] = Sim Time
     # img        = cv image in BGR format
 
-    ref.ref[0] = -0.5
-    ref.ref[1] = 0.5
+    #ref.ref[0] = -0.5
+   # ref.ref[1] = 0.5
+    #ctrl.rightWheel(r,ref,-0.5)
+    #ctrl.leftWheel(r,ref,0.5)
 
     print 'Sim Time = ', tim.sim[0]
     
     # Sets reference to robot
-    r.put(ref);
+    #r.put(ref);
 
     # Sleeps
     time.sleep(0.1)   
