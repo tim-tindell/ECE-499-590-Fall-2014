@@ -150,7 +150,7 @@ while True:
     D=0
     if(PR-PL!=0):
     	D=(0.4*.085)/(PR-PL)
-    print "Distance= "+str(mt.fabs(D))
+    print "Distance= "+str(mt.fabs(D))+" meters"
     [status, framesize] = t.get(tim, wait=False, last=True)
     if status == ach.ACH_OK or status == ach.ACH_MISSED_FRAME or status == ach.ACH_STALE_FRAMES:
         pass
