@@ -1,4 +1,4 @@
-import diff_drive
+
 import ach
 import sys
 import time
@@ -7,7 +7,7 @@ import socket
 import cv2.cv as cv
 import cv2
 import numpy as np
-import controller_def as ctrl
+
 import AngVelChan as angle
 
 
@@ -27,8 +27,6 @@ newy = 240
 nx = 640
 ny = 480
 
-dd = diff_drive
-tim = dd.H_TIME()
 
 a = ach.Channel(angle.CONTROLLER_REF_NAME)
 a.flush()
