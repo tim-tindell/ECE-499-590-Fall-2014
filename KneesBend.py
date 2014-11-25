@@ -70,8 +70,8 @@ def main(settings):
         actuator.moving_speed = 50
         actuator.synchronized = True
         actuator.torque_enable = True
-        actuator.torque_limit = 800
-        actuator.max_torque = 800
+        actuator.torque_limit = 1023
+        actuator.max_torque = 1023
     
     # Randomly vary servo position within a small range
 
@@ -93,42 +93,55 @@ def main(settings):
     setGoal(myActuators,RHP,-.42)
     setGoal(myActuators,RKN,-.84)
     setGoal(myActuators,RAP,.42)
-    time.sleep(2)			
-    while True:
+    net.synchronize()
+    time.sleep(2)
 #<PHASE 2> move over to the right foot
-        setGoal(myActuators,LHR,.2)
-        setGoal(myActuators,RHR,.2)
-        setGoal(myActuators,RAR,.2)
-        setGoal(myActuators,LAR,.2)
+    setGoal(myActuators,LHR,.3)
+    setGoal(myActuators,RHR,.3)
+    setGoal(myActuators,RAR,.3)
+    setGoal(myActuators,LAR,.3)
+    net.synchronize()
+    time.sleep(2)
+#<PHASE 3> move the left leg into the air
+    amount=0.42
+    while(amount<=.72):
+        setGoal(myActuators,LHP,amount)
+        setGoal(myActuators,LKN,2*amount)
+        setGoal(myActuators,LAP,-amount)
+        net.synchronize()		
+        time.sleep(0.5)
+        amount +=0.1
+    time.sleep(2)
+    setGoal(myActuators,RHP,-0.42)
+    net.synchronize()
+    time.sleep(2)
+    
+    
+#<PHASE 4> Put The left Leg down more forward
+    setGoal(myActuators,LKN,1.2)
+    setGoal(myActuators,LAP,-.44)
+    net.synchronize()		
+    time.sleep(3)
+			
+    while True:
+
+#<PHASE 5> move the hips to move the center of gravity to the left foot    
+        setGoal(myActuators,LHR,0)
+        setGoal(myActuators,RHR,0)
+        setGoal(myActuators,RAR,0)
+        setGoal(myActuators,LAR,0)
         net.synchronize()
         time.sleep(2)
-#<PHASE 3> move the left leg into the air
-        amount=0.4;
-
-        while(amount<=0.6):
-            setGoal(myActuators,LHP,amount)
-            setGoal(myActuators,LKN,2*amount)
-            setGoal(myActuators,LAP,-amount)
-            net.synchronize()		
-            time.sleep(0.5)
-            amount +=0.1
-        time.sleep(2)
-#<PHASE 4> Put The left Leg down more forward
-        setGoal(myActuators,LKN,.8)
-        setGoal(myActuators,LAP,-.3)
-        #setGoal(myActuators,LAR,0)
-        net.synchronize()		
-        time.sleep(5)
 #<PHASE 5> move the hips to move the center of gravity to the left foot    
         setGoal(myActuators,LHR,-.3)
         setGoal(myActuators,RHR,-.3)
         setGoal(myActuators,RAR,-.3)
         setGoal(myActuators,LAR,-.3)
         net.synchronize()
-        time.sleep(5)
+        time.sleep(3)
 #<PHASE 6> Move the right leg into the air
-        amount=0.4;
-        while(amount<=0.6):
+        amount=0.42
+        while(amount<=.72):
             setGoal(myActuators,RHP,-amount)
             setGoal(myActuators,RKN,-2*amount)
             setGoal(myActuators,RAP,amount)
@@ -136,12 +149,49 @@ def main(settings):
             time.sleep(0.5)
             amount +=0.1
         time.sleep(2)
+        setGoal(myActuators,LHP,0.42)
+        setGoal(myActuators,LAP,-0.42)
+        net.synchronize()
+        time.sleep(2)
 #<PHASE 7> Put the right leg down more forward then before
-        setGoal(myActuators,RKN,-.3)
-        setGoal(myActuators,RAP,-.8)
+        setGoal(myActuators,RKN,-1.2)
+        setGoal(myActuators,RAP,0.44)
         net.synchronize()		
         time.sleep(5)
 
+#<PHASE 5> move the hips to move the center of gravity to the left foot    
+        setGoal(myActuators,LHR,0)
+        setGoal(myActuators,RHR,0)
+        setGoal(myActuators,RAR,0)
+        setGoal(myActuators,LAR,0)
+        net.synchronize()
+        time.sleep(2)
+#<PHASE 5> move the hips to move the center of gravity to the left foot    
+        setGoal(myActuators,LHR,.3)
+        setGoal(myActuators,RHR,.3)
+        setGoal(myActuators,RAR,.3)
+        setGoal(myActuators,LAR,.3)
+        net.synchronize()
+        time.sleep(3)
+#<PHASE 6> Move the right leg into the air
+        amount=0.42;
+        while(amount<=.72):
+            setGoal(myActuators,LHP,amount)
+            setGoal(myActuators,LKN,2*amount)
+            setGoal(myActuators,LAP,-amount)
+            net.synchronize()		
+            time.sleep(0.5)
+            amount +=0.1
+        time.sleep(2)
+        setGoal(myActuators,RHP,-0.42)
+        setGoal(myActuators,RAP,0.44)
+        net.synchronize()
+        time.sleep(2)
+#<PHASE 7> Put the right leg down more forward then before
+        setGoal(myActuators,LKN,1.2)
+        setGoal(myActuators,LAP,-0.44)
+        net.synchronize()		
+        time.sleep(5)
         print ("loopes\n")
 
 def validateInput(userInput, rangeMin, rangeMax):
