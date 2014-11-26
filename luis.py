@@ -86,15 +86,13 @@ def main(settings):
     net.synchronize()
     time.sleep(3)
 #<PHASE 1>bend our knees first!!!
-    setGoal(myActuators,LHP,.42)
-    setGoal(myActuators,LKN,.84)
-    setGoal(myActuators,LAP,-.42)
+#    setGoal(myActuators,LHP,.42)
+#    setGoal(myActuators,LKN,.84)
+#    setGoal(myActuators,LAP,-.42)
 
-    setGoal(myActuators,RHP,-.42)
-    setGoal(myActuators,RKN,-.84)
-    setGoal(myActuators,RAP,.42)
-    net.synchronize()
-    time.sleep(2)
+#    setGoal(myActuators,RHP,-.42)
+#    setGoal(myActuators,RKN,-.84)
+#    setGoal(myActuators,RAP,.42)
 #<PHASE 2> move over to the right foot
     setGoal(myActuators,LHR,.22)
     setGoal(myActuators,RHR,.22)
@@ -103,23 +101,22 @@ def main(settings):
     net.synchronize()
     time.sleep(2)
 #<PHASE 3> move the left leg into the air
-    amount=0.42
-    while(amount<=.72):
-        setGoal(myActuators,LHP,amount)
-        setGoal(myActuators,LKN,2*amount)
-        setGoal(myActuators,LAP,-amount)
-        net.synchronize()		
-        time.sleep(0.5)
-        amount +=0.1
-    time.sleep(2)
-    setGoal(myActuators,RHP,-0.42)
+    amount=0
+    setGoal(myActuators,LHP,.42)
+    setGoal(myActuators,LKN,1.2)
+    setGoal(myActuators,LAP,-.84)
     net.synchronize()
-    time.sleep(2)
+    time.sleep(5)
     
+    setGoal(myActuators,LHP,0)
+    setGoal(myActuators,LKN,.42)
+    setGoal(myActuators,LAP,-.42)
+    net.synchronize()		
+    time.sleep(13)
     
 #<PHASE 4> Put The left Leg down more forward
-    setGoal(myActuators,LKN,1.0)
-    setGoal(myActuators,LAP,-.42)
+    setGoal(myActuators,LKN,.5)
+    setGoal(myActuators,LAP,.42)
     net.synchronize()		
     time.sleep(3)
 			
