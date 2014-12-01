@@ -1,16 +1,17 @@
-ECE-499-590-Fall-2014
-=====================
+All different steps, Walk Forward, Walk Backward, etc. have been created in their own files.
 
-Term Project
+These files are imported into main.py and used.
 
-Project To Do List:
+All dynamixel related code has been placed into DynDefs.py to make code more readable
 
-Go Forward
+DynDefs.py - Dynamixel definitions
 
-Go Backward
+BackwardsWalk.py - Definition to walk backwards
 
-Turn Left
+ForwardWalk.py - Definition to walk forwards
 
-Turn Right
+TurnLeft.py - Definintion to walk left
 
-Key Controller
+TurnRight.py - Definition to walk right
+
+main.py - The main code that gets user input and moves the robot in the user desired direction
