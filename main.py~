@@ -77,28 +77,28 @@ def main(settings):
         #w
             if key == 119:
                 stdscr.addstr(8,10,"Walking Forward             ")
-                stdscr.refresh()
                 WalkForward(net,myActuators)
+                stdscr.refresh()
                 stdscr.addstr(8,10,"Finished Walking Forward    ")
         #s
             elif key == 115: 
                 stdscr.addstr(8,10,"Walking Backward            ")
-                stdscr.refresh()
                 WalkBackward(net,myActuators)
+                stdscr.refresh()
                 stdscr.addstr(8,10,"Finished Walking Backward   ")
 
         #a
             elif key == 97: 
                 stdscr.addstr(8,10,"Turning Left                ")
-                stdscr.refresh()
                 TurnLeft(net,myActuators)
+                stdscr.refresh()
                 stdscr.addstr(8,10,"Finished Turning Left       ")
 
         #d
             elif key == 100:
                 stdscr.addstr(8,10,"Turning Right               ")
-                stdscr.refresh()
                 TurnRight(net,myActuators)
+                stdscr.refresh()
                 stdscr.addstr(8,10,"Finished Turning Right      ")
             stdscr.addstr(10,2," ")
             stdscr.refresh()

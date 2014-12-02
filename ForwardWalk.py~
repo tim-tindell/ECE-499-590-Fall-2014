@@ -133,7 +133,6 @@ def WalkForward(net,myActuators):
 
     setGoal(myActuators,LKN,0)
     setGoal(myActuators,RKN,0)
-    net.synchronize()	
     time.sleep(1)
 
     #print "Phase 10 fin"

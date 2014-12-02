@@ -1,4 +1,5 @@
-ECE-499-590-Fall-2014
-=====================
+All different steps, Walk Forward, Walk Backward, etc. have been created in their own files.
 
-ECE-499-590-Fall-2014
+These files are imported into main.py and used.
+
+All dynamixel related code has been placed into DynDefs.py to make code more readable
